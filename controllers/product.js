@@ -61,7 +61,7 @@ exports.login = async (req, res, next) => {
 		res.status(404).json({ error: "User not found" });
 		return;
 	}
-	const token = await jwt.sign({ user }, "fake-jwt-secret", { expiresIn: '10s' });
+	const token = await jwt.sign({ user }, "fake-jwt-secret", { expiresIn: '1800s' });
 	const { username, firstName, lastName, id, password, role, approvedList, timeoffRequest } = user;
 	res.send({ username, firstName, lastName, id, password, role, approvedList, timeoffRequest, token });
 };
