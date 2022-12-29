@@ -26,6 +26,7 @@ exports.product_create = function (req, res, next) {
 					password: encrypted,
 					role: req.body.role,
 					username: req.body.username,
+					selectedLeaveType: req.body.selectedLeaveType,
 					_id: count.toString(),
 					id: count.toString()
 				}
@@ -62,8 +63,8 @@ exports.login = async (req, res, next) => {
 		return;
 	}
 	const token = await jwt.sign({ user }, "fake-jwt-secret", { expiresIn: '1800s' });
-	const { username, firstName, lastName, id, password, role, approvedList, timeoffRequest } = user;
-	res.send({ username, firstName, lastName, id, password, role, approvedList, timeoffRequest, token });
+	const { username, firstName, lastName, id, password, role, approvedList, timeoffRequest, 	selectedLeaveType } = user;
+	res.send({ username, firstName, lastName, id, password, role, approvedList, timeoffRequest, selectedLeaveType, token });
 };
 
 //Get All users

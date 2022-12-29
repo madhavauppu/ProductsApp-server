@@ -11,7 +11,8 @@ var ProductSchema = new Schema({
       id: {type: String, required: true},
       numberOfdays: {type: Number, required: false},
       timeoffRequest: {type: Array, required: false},
-      approvedList: {type: Array, required: false}
+      approvedList: {type: Array, required: false},
+      selectedLeaveType:{type: String, required: false}
 });
 
 
